@@ -42,24 +42,3 @@ df_temperaturas_largo = df_temperaturas.melt(id_vars='fecha', var_name='ciudad',
 df_combinado = pd.merge(df_empleados, df_salarios, on='id_empleado')
 pivot_table = df_combinado.pivot_table(index='departamento', columns='año', values='salario', aggfunc='mean')
 ```
-
-**Ejercicio 8:** Une los DataFrames `df_estudiantes` y `df_notas` por la columna `id_estudiante`, y luego transforma el resultado a un formato largo donde cada fila represente una nota de un estudiante en una materia específica.
-
-```python
-df_combinado = pd.merge(df_estudiantes, df_notas, on='id_estudiante')
-df_notas_largo = df_combinado.melt(id_vars=['id_estudiante', 'nombre'], var_name='materia', value_name='nota')
-```
-
-**Ejercicio 9:** A partir del DataFrame `df_ventas_largo` (en formato largo), crea una tabla dinámica que muestre la suma de `ventas` por `mes` y `categoria_producto`.
-
-```python
-pivot_table = df_ventas_largo.pivot_table(index='mes', columns='categoria_producto', values='ventas', aggfunc='sum')
-```
-
-**Ejercicio 10:** A partir del DataFrame `df_temperaturas_largo` (en formato largo), crea una tabla dinámica que muestre la temperatura promedio por `ciudad` y `estacion` (asumiendo que tienes una columna `estacion` en el DataFrame).
-
-```python
-pivot_table = df_temperaturas_largo.pivot_table(index='ciudad', columns='estacion', values='temperatura', aggfunc='mean')
-```
-
-**Nota:** Estos ejercicios asumen que tienes DataFrames con los nombres y columnas mencionados. ¡Puedes adaptar los nombres y columnas según tus propios conjuntos de datos!
